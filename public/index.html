@@ -1,31 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Luxe Cosmetics</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { background: #000; color: #fff; text-align: center; padding: 50px; }
-        h1 { color: #D4AF37; }
-        .product { background: #1a1a1a; padding: 20px; margin: 10px; border-radius: 10px; }
-        button { background: #D4AF37; color: #000; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-    </style>
+    <title>Luxe Cosmetics - Премиальная косметика</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>LUXE COSMETICS</h1>
-    <p>Премиальная косметика</p>
-    
-    <div class="product">
-        <h3>Крем La Mer</h3>
-        <p>42 500 ₽</p>
-        <button onclick="alert('Товар добавлен!')">В корзину</button>
+    <div class="container">
+        <header class="header">
+            <h1>✨ Luxe Cosmetics</h1>
+            <p>Премиальная косметика для настоящих ценителей</p>
+        </header>
+
+        <section class="welcome-section">
+            <h2>🎉 Добро пожаловать в наш магазин!</h2>
+            <p>Мы рады приветствовать вас в мире роскошной косметики.</p>
+            
+            <div class="instructions">
+                <h3>📋 Как пользоваться магазином:</h3>
+                <div class="instruction-item">
+                    <div class="instruction-number">1</div>
+                    <div>Выбирайте товары из каталога ниже</div>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-number">2</div>
+                    <div>Нажимайте "В корзину" для добавления товаров</div>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-number">3</div>
+                    <div>Переходите в корзину для оформления заказа</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="🔍 Поиск товаров...">
+            </div>
+            <div class="categories-filter">
+                <button class="category-btn active" data-category="all">Все товары</button>
+                <button class="category-btn" data-category="Уход за кожей">Уход за кожей</button>
+                <button class="category-btn" data-category="Макияж">Макияж</button>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h3>🛍️ Наш каталог</h3>
+            <div id="products-container" class="products-grid">
+                <!-- Товары загружаются через JavaScript -->
+            </div>
+        </section>
     </div>
-    
-    <div class="product">
-        <h3>Помада Chanel</h3>
-        <p>4 200 ₽</p>
-        <button onclick="alert('Товар добавлен!')">В корзину</button>
+
+    <div class="cart-floating-btn" onclick="openCartModal()">
+        🛒 <span id="cart-count">0</span>
     </div>
-    
-    <a href="cart.html" style="color: #D4AF37;">Перейти в корзину</a>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Ваша корзина</h2>
+                <span class="close" onclick="closeCartModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items">
+                    <!-- Товары корзины -->
+                </div>
+                <div class="cart-total">
+                    <strong>Итого: <span id="cart-total-price">0</span> ₽</strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeCartModal()">Продолжить покупки</button>
+                <button class="btn btn-primary" onclick="checkout()">Оформить заказ</button>
+                <button class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>

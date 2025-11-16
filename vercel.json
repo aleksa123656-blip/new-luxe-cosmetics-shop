@@ -3,8 +3,8 @@
   "public": true,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build"
+      "src": "index.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -12,13 +12,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "functions": {
-    "app/index.html": {
-      "includeFiles": "**/*"
-    }
-  },
-  "env": {
-    "PUBLIC_URL": "@public-url"
-  }
+  ]
 }
