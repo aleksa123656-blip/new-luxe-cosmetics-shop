@@ -3,22 +3,22 @@
   "public": true,
   "builds": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server.js"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/public/$1"
+      "dest": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "app/index.html": {
+      "includeFiles": "**/*"
+    }
+  },
+  "env": {
+    "PUBLIC_URL": "@public-url"
+  }
 }
